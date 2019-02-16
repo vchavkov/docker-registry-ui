@@ -3,7 +3,7 @@ version: '2.0'
 services:
   registry:
     restart: always
-    image: registry:2
+    image: registry:2.6.2
     environment:
       REGISTRY_HTTP_TLS_CERTIFICATE: /certs/live/assistance.bg/fullchain.pem
       REGISTRY_HTTP_TLS_KEY: /certs/live/assistance.bg/privkey.pem
