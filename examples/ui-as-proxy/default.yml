@@ -11,7 +11,7 @@ services:
       - /var/lib/registry-data:/var/lib/registry
       - /etc/letsencrypt/:/certs
     ports:
-      - 5000:5000
+      - 5555:5000
 
   registry-ui:
     image: joxit/docker-registry-ui:static
