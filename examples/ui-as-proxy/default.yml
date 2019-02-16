@@ -1,26 +1,24 @@
 version: '2.0'
-services:
 
-registry:
+services:
+  registry:
     restart: always
     image: registry:2
     environment:
       REGISTRY_HTTP_TLS_CERTIFICATE: /certs/live/assistance.bg/fullchain.pem
       REGISTRY_HTTP_TLS_KEY: /certs/live/assistance.bg/privkey.pem
-    registry:
-      image: registry:2.6.2
     volumes:
       - ./registry-data:/var/lib/registry
       - /etc/letsencrypt/:/certs
     ports:
       - 5555:5000
 
-  ui:
+  registry-ui:
     image: joxit/docker-registry-ui:static
     ports:
       - 8888:80
     environment:
-      - REGISTRY_TITLE=My Private Docker Registry
+      - REGISTRY_TITLE=Minerva's Private Registry
       - REGISTRY_URL=http://registry:5000
     depends_on:
       - registry
