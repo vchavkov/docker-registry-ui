@@ -4,6 +4,8 @@ services:
     image: registry:2.6.2
     volumes:
       - ./registry-data:/var/lib/registry
+    networks:
+      - docker-registry-ui
 
   ui:
     image: joxit/docker-registry-ui:static
@@ -14,3 +16,8 @@ services:
       - REGISTRY_URL=http://registry:5000
     depends_on:
       - registry
+    networks:
+      - docker-registry-ui
+
+networks:
+  registry-ui-net:

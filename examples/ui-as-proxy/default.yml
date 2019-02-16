@@ -4,6 +4,8 @@ services:
     image: registry:2.6.2
     volumes:
       - ./registry-data:/var/lib/registry
+    ports:
+      - 5555:5000
 
   ui:
     image: joxit/docker-registry-ui:static
